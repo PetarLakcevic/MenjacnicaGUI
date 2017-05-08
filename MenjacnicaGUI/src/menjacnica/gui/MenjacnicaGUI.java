@@ -7,7 +7,9 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JFileChooser;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -73,7 +75,7 @@ public class MenjacnicaGUI extends JFrame {
 				.getImage(MenjacnicaGUI.class.getResource("5051-200.png")));
 
 		setTitle("Menjacnica");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 749, 510);
 		setBounds(100, 100, 650, 434);
 		setJMenuBar(getMenuBar_1());
@@ -119,7 +121,20 @@ public class MenjacnicaGUI extends JFrame {
 			mntmOpen = new JMenuItem("Open");
 			mntmOpen.setIcon(new ImageIcon(
 					MenjacnicaGUI.class.getResource("/javax/swing/plaf/metal/icons/ocean/newFolder.gif")));
+			mntmOpen.addActionListener(new ActionListener() {
+				 				public void actionPerformed(ActionEvent arg0) {
+				 					String f = GUIKontroler.izaberiFajl();
+				 					String s = "Ucitan fajl: " + f;
+				 					textArea.append(s + "\n");
+				 				}
+				 			});
+				 			mntmOpen.setIcon(new ImageIcon(
+				 					MenjacnicaGUI.class.getResource("/javax/swing/plaf/metal/icons/ocean/newFolder.gif")));
 			mntmOpen.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, InputEvent.CTRL_MASK));
+			
+			
+			
+			
 		}
 		return mntmOpen;
 	}
@@ -129,6 +144,15 @@ public class MenjacnicaGUI extends JFrame {
 			mntmSave = new JMenuItem("Save");
 			mntmSave.setIcon(
 					new ImageIcon(MenjacnicaGUI.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
+			mntmSave.addActionListener(new ActionListener() {
+				 				public void actionPerformed(ActionEvent e) {
+				 					String f = GUIKontroler.ucitajFajl();
+				 					String s = "Sacuvan fajl: " + f;
+				 					textArea.append(s + "\n");
+				 				}
+				 			});
+				 			mntmSave.setIcon(
+				 					new ImageIcon(MenjacnicaGUI.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
 			mntmSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, InputEvent.CTRL_MASK));
 		}
 		return mntmSave;
@@ -137,6 +161,11 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmExit() {
 		if (mntmExit == null) {
 			mntmExit = new JMenuItem("Exit");
+			mntmExit.addActionListener(new ActionListener() {
+				 				public void actionPerformed(ActionEvent e) {
+				 					GUIKontroler.ugasi();
+				 				}
+				 			});
 			mntmExit.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.ALT_MASK));
 		}
 		return mntmExit;
@@ -247,11 +276,11 @@ public class MenjacnicaGUI extends JFrame {
 			table.setPreferredScrollableViewportSize(new Dimension(450, 500));
 			table.setModel(new DefaultTableModel(
 					new Object[][] { { null, null, null, null, null, null }, { null, null, null, null, null, null },
-							{ null, null, null, null, null, null }, { null, null, null, null, null, null },
-							{ null, null, null, null, null, null }, { null, null, null, null, null, null },
-							{ null, null, null, null, null, null }, { null, null, null, null, null, null },
-							{ null, null, null, null, null, null }, { null, null, null, null, null, null }, },
-					new String[] { "Sifra", "Skraceni naziv", "Prodajni", "Srednji", "Kupovni", "Naziv" }));
+						 							{ null, null, null, null, null, null }, { null, null, null, null, null, null },
+						 							{ null, null, null, null, null, null }, { null, null, null, null, null, null },
+						 							{ null, null, null, null, null, null }, { null, null, null, null, null, null },
+						 							{ null, null, null, null, null, null }, { null, null, null, null, null, null }, },
+						 					new String[] { "Sifra", "Skraceni naziv", "Prodajni", "Srednji", "Kupovni", "Naziv" }));
 			addPopup(table, getPopupMenu());
 			table.getColumnModel().getColumn(1).setPreferredWidth(90);
 		}
@@ -304,7 +333,7 @@ public class MenjacnicaGUI extends JFrame {
 
 	private JMenuItem getMntmIzvrsiZamenu() {
 		if (mntmIzvrsiZamenu == null) {
-			mntmIzvrsiZamenu = new JMenuItem("Izvrsi zamenu");
+			mntmIzvrsiZamenu = new JMenuItem("Zameni");
 		}
 		return mntmIzvrsiZamenu;
 	}
