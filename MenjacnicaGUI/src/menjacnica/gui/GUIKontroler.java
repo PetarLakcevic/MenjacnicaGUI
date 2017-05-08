@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 
 public class GUIKontroler {
 	private static MenjacnicaGUI menjacnica;
+	private static DodajKursGUI dodajKurs;
 
 	/**
 	 * Launch the application.
@@ -35,6 +36,11 @@ public class GUIKontroler {
 		});
 	}
 
+	public static void dodajKurs(String str) {
+		menjacnica.dodajKurs2(str);
+
+	}
+
 	public static String izaberiFajl() {
 		String f = "";
 		try {
@@ -43,6 +49,8 @@ public class GUIKontroler {
 			if (odgovor == JFileChooser.APPROVE_OPTION) {
 				File file = fc.getSelectedFile();
 				f = file.getAbsolutePath();
+			} else {
+				return null;
 			}
 		} catch (Exception ex) {
 			JOptionPane.showMessageDialog(menjacnica, ex.getMessage(), "Greska", JOptionPane.ERROR_MESSAGE);
@@ -60,6 +68,8 @@ public class GUIKontroler {
 			if (f == JFileChooser.APPROVE_OPTION) {
 				File file = jf.getSelectedFile();
 				s = file.getAbsolutePath();
+			} else {
+				return null;
 			}
 		} catch (Exception ex) {
 			JOptionPane.showMessageDialog(menjacnica, ex.getMessage(), "Greska!!!", JOptionPane.ERROR_MESSAGE);
@@ -76,8 +86,9 @@ public class GUIKontroler {
 	}
 
 	public static void prikaziInfoOAutoru() {
-		JOptionPane.showMessageDialog(menjacnica, "Autor: Petar Lakcevic\nE-mail: petar.lakcevic@gmail.com\nBeograd, 2017",
-				"O autoru", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(menjacnica,
+				"Autor: Petar Lakcevic\nE-mail: petar.lakcevic@gmail.com\nBeograd, 2017", "O autoru",
+				JOptionPane.INFORMATION_MESSAGE);
 
 	}
 }
