@@ -1,8 +1,5 @@
 package menjacnica.gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -177,7 +174,7 @@ public class DodajKursGUI extends JFrame {
 			btnDodaj = new JButton("Dodaj");
 			btnDodaj.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					String str = "Sifra: ";
+					String str = "Dodat je kurs( Sifra: ";
 					str += textFieldSifra.getText();
 					str += " Naziv: ";
 					str += textFieldNaziv.getText();
@@ -189,7 +186,7 @@ public class DodajKursGUI extends JFrame {
 					str += textFieldKupovniKurs.getText();
 					str += " Skraceni naziv: ";
 					str += textFieldSkraceniNaziv.getText();
-
+					str += " )";
 					GUIKontroler.dodajKurs(str);
 					dispose();
 				}

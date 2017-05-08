@@ -38,7 +38,9 @@ public class GUIKontroler {
 
 	public static void dodajKurs(String str) {
 		menjacnica.dodajKurs2(str);
-
+	}
+	 	public static void ispisIzbrisKursa(String str) {
+	 		menjacnica.ispisIzbrisKursa2(str);
 	}
 
 	public static String izaberiFajl() {

@@ -41,6 +41,7 @@ public class MenjacnicaGUI extends JFrame {
 	 * 
 	 */
 	DodajKursGUI dodajKurs;
+	ObrisiKursGUI obrisiKurs;
 	private static final long serialVersionUID = -8678529010427450890L;
 	private JPanel contentPane;
 	private JMenuBar menuBar;
@@ -213,6 +214,12 @@ public class MenjacnicaGUI extends JFrame {
 		if (btnObrisiKurs == null) {
 			btnObrisiKurs = new JButton("Obrisi kurs");
 			btnObrisiKurs.setBackground(SystemColor.info);
+			btnObrisiKurs.addActionListener(new ActionListener() {
+								public void actionPerformed(ActionEvent e) {
+									obrisiKurs = new ObrisiKursGUI();
+				 					obrisiKurs.setVisible(true);
+				 				}
+				 			});
 			btnObrisiKurs.setFont(new Font("Tahoma", Font.BOLD, 11));
 			btnObrisiKurs.setMinimumSize(new Dimension(99, 23));
 			btnObrisiKurs.setMaximumSize(new Dimension(120, 23));
@@ -339,12 +346,21 @@ public class MenjacnicaGUI extends JFrame {
 
 	public void dodajKurs2(String str) {
 		textArea.append(str + "\n");
+	}
+		public void ispisIzbrisKursa2(String str) {
+					textArea.append(str + "\n");
 
 	}
 
 	private JMenuItem getMntmObrisiKurs() {
 		if (mntmObrisiKurs == null) {
 			mntmObrisiKurs = new JMenuItem("Obrisi kurs");
+			mntmObrisiKurs.addActionListener(new ActionListener() {
+				 				public void actionPerformed(ActionEvent e) {
+				 					obrisiKurs = new ObrisiKursGUI();
+				 					obrisiKurs.setVisible(true);
+				 				}
+				 			});
 		}
 		return mntmObrisiKurs;
 	}
