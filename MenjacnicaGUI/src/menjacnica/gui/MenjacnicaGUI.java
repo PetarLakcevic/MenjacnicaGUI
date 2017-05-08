@@ -1,15 +1,12 @@
 package menjacnica.gui;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.Toolkit;
-import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JFileChooser;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -20,10 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Dimension;
 import java.awt.Font;
-import javax.swing.JScrollBar;
 import javax.swing.JTextArea;
-import java.awt.FlowLayout;
-import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
 import javax.swing.JTable;
@@ -42,6 +36,7 @@ public class MenjacnicaGUI extends JFrame {
 	 */
 	DodajKursGUI dodajKurs;
 	ObrisiKursGUI obrisiKurs;
+	IzvrsiZamenuGUI izvrsiZamenu;
 	private static final long serialVersionUID = -8678529010427450890L;
 	private JPanel contentPane;
 	private JMenuBar menuBar;
@@ -215,11 +210,11 @@ public class MenjacnicaGUI extends JFrame {
 			btnObrisiKurs = new JButton("Obrisi kurs");
 			btnObrisiKurs.setBackground(SystemColor.info);
 			btnObrisiKurs.addActionListener(new ActionListener() {
-								public void actionPerformed(ActionEvent e) {
-									obrisiKurs = new ObrisiKursGUI();
-				 					obrisiKurs.setVisible(true);
-				 				}
-				 			});
+				public void actionPerformed(ActionEvent e) {
+					obrisiKurs = new ObrisiKursGUI();
+					obrisiKurs.setVisible(true);
+				}
+			});
 			btnObrisiKurs.setFont(new Font("Tahoma", Font.BOLD, 11));
 			btnObrisiKurs.setMinimumSize(new Dimension(99, 23));
 			btnObrisiKurs.setMaximumSize(new Dimension(120, 23));
@@ -231,6 +226,12 @@ public class MenjacnicaGUI extends JFrame {
 	private JButton getBtnIzvrsiZamenu() {
 		if (btnIzvrsiZamenu == null) {
 			btnIzvrsiZamenu = new JButton("Izvrsi zamenu");
+			btnIzvrsiZamenu.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					izvrsiZamenu = new IzvrsiZamenuGUI();
+					izvrsiZamenu.setVisible(true);
+				}
+			});
 			btnIzvrsiZamenu.setBackground(SystemColor.info);
 			btnIzvrsiZamenu.setFont(new Font("Tahoma", Font.BOLD, 11));
 		}
@@ -347,8 +348,14 @@ public class MenjacnicaGUI extends JFrame {
 	public void dodajKurs2(String str) {
 		textArea.append(str + "\n");
 	}
-		public void ispisIzbrisKursa2(String str) {
-					textArea.append(str + "\n");
+
+	public void ispisIzbrisKursa2(String str) {
+		textArea.append(str + "\n");
+
+	}
+
+	public void ispisZamene2(String str) {
+		textArea.append(str + "\n");
 
 	}
 
@@ -356,11 +363,11 @@ public class MenjacnicaGUI extends JFrame {
 		if (mntmObrisiKurs == null) {
 			mntmObrisiKurs = new JMenuItem("Obrisi kurs");
 			mntmObrisiKurs.addActionListener(new ActionListener() {
-				 				public void actionPerformed(ActionEvent e) {
-				 					obrisiKurs = new ObrisiKursGUI();
-				 					obrisiKurs.setVisible(true);
-				 				}
-				 			});
+				public void actionPerformed(ActionEvent e) {
+					obrisiKurs = new ObrisiKursGUI();
+					obrisiKurs.setVisible(true);
+				}
+			});
 		}
 		return mntmObrisiKurs;
 	}
@@ -368,6 +375,12 @@ public class MenjacnicaGUI extends JFrame {
 	private JMenuItem getMntmIzvrsiZamenu() {
 		if (mntmIzvrsiZamenu == null) {
 			mntmIzvrsiZamenu = new JMenuItem("Zameni");
+			mntmIzvrsiZamenu.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					izvrsiZamenu = new IzvrsiZamenuGUI();
+					izvrsiZamenu.setVisible(true);
+				}
+			});
 		}
 		return mntmIzvrsiZamenu;
 	}

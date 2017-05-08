@@ -1,8 +1,6 @@
 package menjacnica.gui;
 
 import java.awt.EventQueue;
-import java.awt.TrayIcon;
-import java.awt.TrayIcon.MessageType;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -12,8 +10,6 @@ import javax.swing.JOptionPane;
 
 public class GUIKontroler {
 	private static MenjacnicaGUI menjacnica;
-	private static DodajKursGUI dodajKurs;
-
 	/**
 	 * Launch the application.
 	 */
@@ -39,8 +35,14 @@ public class GUIKontroler {
 	public static void dodajKurs(String str) {
 		menjacnica.dodajKurs2(str);
 	}
-	 	public static void ispisIzbrisKursa(String str) {
-	 		menjacnica.ispisIzbrisKursa2(str);
+
+	public static void ispisIzbrisKursa(String str) {
+		menjacnica.ispisIzbrisKursa2(str);
+	}
+
+	public static void ispisZamene(String str) {
+		menjacnica.ispisZamene2(str);
+
 	}
 
 	public static String izaberiFajl() {
