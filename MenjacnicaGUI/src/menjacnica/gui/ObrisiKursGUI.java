@@ -14,6 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
 
 public class ObrisiKursGUI extends JFrame {
 
@@ -44,6 +46,7 @@ public class ObrisiKursGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public ObrisiKursGUI() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ObrisiKursGUI.class.getResource("/menjacnica/gui/5051-200.png")));
 		setMaximumSize(new Dimension(61, 23));
 		setMinimumSize(new Dimension(61, 23));
 		setPreferredSize(new Dimension(61, 23));
@@ -61,6 +64,7 @@ public class ObrisiKursGUI extends JFrame {
 	private JPanel getPanel() {
 		if (panel == null) {
 			panel = new JPanel();
+			panel.setBackground(SystemColor.textHighlight);
 			panel.setLayout(null);
 			panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 			panel.setBounds(0, 0, 334, 267);
@@ -200,6 +204,7 @@ public class ObrisiKursGUI extends JFrame {
 	private JButton getBtnObrisi() {
 		if (btnObrisi == null) {
 			btnObrisi = new JButton("Obrisi");
+			btnObrisi.setBackground(SystemColor.info);
 			btnObrisi.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					String str = "Obrisan je kurs( Sifra: ";
@@ -228,6 +233,7 @@ public class ObrisiKursGUI extends JFrame {
 	private JButton getBtnOdustani() {
 		if (btnOdustani == null) {
 			btnOdustani = new JButton("Odustani");
+			btnOdustani.setBackground(SystemColor.info);
 			btnOdustani.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					dispose();

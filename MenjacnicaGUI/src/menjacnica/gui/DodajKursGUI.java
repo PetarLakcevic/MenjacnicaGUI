@@ -9,6 +9,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
+import java.awt.SystemColor;
+import java.awt.Toolkit;
 
 public class DodajKursGUI extends JFrame {
 
@@ -37,11 +40,13 @@ public class DodajKursGUI extends JFrame {
 	 * Create the frame.
 	 */
 	public DodajKursGUI() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(DodajKursGUI.class.getResource("/menjacnica/gui/5051-200.png")));
 		setResizable(false);
 		setTitle("Dodaj kurs");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 340, 285);
 		contentPane = new JPanel();
+		contentPane.setBackground(UIManager.getColor("List.selectionBackground"));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -162,7 +167,7 @@ public class DodajKursGUI extends JFrame {
 
 	private JLabel getLblSkraceniNaziv() {
 		if (lblSkraceniNaziv == null) {
-			lblSkraceniNaziv = new JLabel("Skraceni naziv");
+			lblSkraceniNaziv = new JLabel("Skr. naziv");
 			lblSkraceniNaziv.setFont(new Font("Tahoma", Font.BOLD, 11));
 			lblSkraceniNaziv.setBounds(177, 141, 86, 14);
 		}
@@ -172,6 +177,7 @@ public class DodajKursGUI extends JFrame {
 	private JButton getBtnDodaj() {
 		if (btnDodaj == null) {
 			btnDodaj = new JButton("Dodaj");
+			btnDodaj.setBackground(SystemColor.info);
 			btnDodaj.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					String str = "Dodat je kurs( Sifra: ";
@@ -199,6 +205,7 @@ public class DodajKursGUI extends JFrame {
 	private JButton getBtnOdustani() {
 		if (btnOdustani == null) {
 			btnOdustani = new JButton("Odustani");
+			btnOdustani.setBackground(SystemColor.info);
 			btnOdustani.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					dispose();
